@@ -9,7 +9,7 @@ const APP = EXPRESS();
 
 const PORT = 3000;
 
-APP.use('/', EXPRESS.static(PUBLIC_PATH));
+APP.use(EXPRESS.static(PUBLIC_PATH));
 
 APP.listen(PORT, () => {
     console.log(`Started on port ${PORT}`);
