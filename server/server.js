@@ -1,13 +1,13 @@
-require('./config/config');
+// require('./config/config');
 
 const PATH = require('path')
 const EXPRESS = require('express');
 
 const PUBLIC_PATH = PATH.join(__dirname, '../public');
 
-const APP = new EXPRESS();
+const APP = EXPRESS();
 
-const PORT = process.env.PORT;
+const PORT = 3000;
 
 APP.use('/', EXPRESS.static(PUBLIC_PATH));
 
