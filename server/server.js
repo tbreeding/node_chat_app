@@ -14,7 +14,19 @@ const PORT = process.env.PORT || 3000;
 APP.use(EXPRESS.static(PUBLIC_PATH));
 
 io.on('connection', (socket) => {
+
     console.log('New user connected');
+
+    socket.emit('newMessage', {
+        from: 'tim@tim.com',
+        text: 'Hey there!',
+        createdAt: new Date()
+    });
+    // socket.emit('socks', {test: "asdf"});
+    socket.on('createMessage', (message) => {
+        console.log('createMessage', message)
+    });
+
     socket.on('disconnect', () => {
         console.log("User was disconnected");
     });
